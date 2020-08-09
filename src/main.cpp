@@ -1,14 +1,14 @@
 // ################################################################################
 // ###                                                                          ###
-// ### Projekt			: Satelitten Cluster									###
-// ### Version			: 1.00													###
-// ### Datum			: 21.06.2020											###
+// ### Projekt			: Gestra												###
+// ### Version			: 0.01													###
+// ### Datum			: 08.08.2020											###
 // ###                                                                          ###
 // ### Änderung			: keine													###
 // ###																			###
 // ### Hardware			: Arduino Nano											###
 // ###					: Leiterplatte 17-0023-02 und 17-0027-02				###
-// ###					: 2 x Digi-Dot-Booster, vom max. 8 Stück				###
+// ###					: 8 x Digi-Dot-Booster									###
 // ###					: 1 x Taster mit LED Ring								###
 // ################################################################################
 
