@@ -19,7 +19,7 @@
 #define SEQUENCE_TIME   	3000    // Dauer der Funktion 1 in ms
 #define SEQUENCE_LAST_STATE 8000    // Dauer des letzten Zustand der Sequenze in ms
 
-#define DDB_COUNT           2       // Anzahl der DigiDotBooster Module
+#define DDB_COUNT           8       // Anzahl der DigiDotBooster Module
 
 #define DDB_1_CS_PIN        2       // Chip Select Pin DDB 1
 #define DDB_2_CS_PIN        3       // Chip Select Pin DDB 2
