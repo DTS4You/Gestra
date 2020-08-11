@@ -3,7 +3,7 @@
 //##################################################################
 #ifndef GLOBAL_INIT_H
 #define GLOBAL_INIT_H
-#endif
+
 
 #define EIN             	HIGH
 #define AUS             	LOW
@@ -47,4 +47,4 @@
 #define MCP23017            0x20    // 1. MCP23017 Adresse
 
 
-
+#endif
