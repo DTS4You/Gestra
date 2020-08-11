@@ -12,7 +12,7 @@
 // ###					: 1 x Taster mit LED Ring								###
 // ################################################################################
 
-// #define DEBUG_LED
+#define DEBUG_LED
 
 #include <arduino.h>
 // #include "ascii_codes.h"
