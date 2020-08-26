@@ -54,15 +54,8 @@ RBD::Timer sequence_timer;
 RBD::ButtonExtern button_1(0);
 
 // LED Segmente Objekte anlegen
-Ledsegment seg_1;
-Ledsegment seg_2;
-Ledsegment seg_3;
-Ledsegment seg_4;
-Ledsegment seg_5;
-Ledsegment seg_6;
-Ledsegment seg_7;
-Ledsegment seg_8;
-Ledsegment seg_9;
+Ledsegment track[24];
+Ledsegment radar[4];
 
 // ----------------------------------------------------------------------------
 // Setup
@@ -107,15 +100,15 @@ void setup() {
 	sequence_timer.stop();
 
 	// Segmente definieren
-	seg_1.setup(STRIPE_1_DDB, STRIPE_1_START, STRIPE_1_NUMBER);
-	seg_2.setup(STRIPE_2_DDB, STRIPE_2_START, STRIPE_2_NUMBER);
-	seg_3.setup(STRIPE_3_DDB, STRIPE_3_START, STRIPE_3_NUMBER);
-	seg_4.setup(STRIPE_4_DDB, STRIPE_4_START, STRIPE_4_NUMBER);
-	seg_5.setup(STRIPE_5_DDB, STRIPE_5_START, STRIPE_5_NUMBER);
-	seg_6.setup(STRIPE_6_DDB, STRIPE_6_START, STRIPE_6_NUMBER);
-	seg_7.setup(STRIPE_7_DDB, STRIPE_7_START, STRIPE_7_NUMBER);
-	seg_8.setup(STRIPE_8_DDB, STRIPE_8_START, STRIPE_8_NUMBER);
-	seg_9.setup(STRIPE_9_DDB, STRIPE_9_START, STRIPE_9_NUMBER);
+	track[0].setup(STRIPE_01_DDB, STRIPE_01_START, STRIPE_01_NUM);
+	track[1].setup(STRIPE_02_DDB, STRIPE_02_START, STRIPE_02_NUM);
+	track[2].setup(STRIPE_03_DDB, STRIPE_03_START, STRIPE_03_NUM);
+	track[3].setup(STRIPE_04_DDB, STRIPE_04_START, STRIPE_04_NUM);
+	track[4].setup(STRIPE_05_DDB, STRIPE_05_START, STRIPE_05_NUM);
+	track[5].setup(STRIPE_06_DDB, STRIPE_06_START, STRIPE_06_NUM);
+	track[6].setup(STRIPE_07_DDB, STRIPE_07_START, STRIPE_07_NUM);
+	track[7].setup(STRIPE_08_DDB, STRIPE_08_START, STRIPE_08_NUM);
+	track[8].setup(STRIPE_09_DDB, STRIPE_09_START, STRIPE_09_NUM);
 	seg_1.setColorDef(F_LED_DEF);
 	seg_1.setColorOn(F_LED_ON);
 	seg_2.setColorDef(F_LED_DEF);
@@ -194,7 +187,7 @@ void loop() {
 	//---------------------------------------------------------------------------
 	if(animation_timer.onRestart()) {
 		if(animation_state > 0) {
-			seg_1.stepUp();
+			track[0].stepUp();
 			seg_2.stepUp();
 			seg_3.stepUp();
 			seg_4.stepUp();
