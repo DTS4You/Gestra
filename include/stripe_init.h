@@ -10,6 +10,10 @@
 #ifndef DEBUG_LED
 
 #define STRIPE_HOR_NUM      64
+#define STRIPE_VER_NUM      50
+
+// 24 x Horizontale Stripes
+// Flugbahnen des Weltraumschrott
 // 1. DDB-Modul 
 #define STRIPE_01_DDB       0
 #define STRIPE_01_START     0
@@ -45,26 +49,91 @@
 #define STRIPE_08_NUM       STRIPE_HOR_NUM          
 
 // 3. DDB-Modul
-#define STRIPE_09_DDB       1
+#define STRIPE_09_DDB       2
 #define STRIPE_09_START     0
 #define STRIPE_09_NUM       STRIPE_HOR_NUM
 
-#define STRIPE_10_DDB       1
+#define STRIPE_10_DDB       2
 #define STRIPE_10_START     ( STRIPE_10_NUM )
 #define STRIPE_10_NUM       STRIPE_HOR_NUM          
 
-#define STRIPE_11_DDB       1
+#define STRIPE_11_DDB       2
 #define STRIPE_11_START     ( STRIPE_10_NUM + STRIPE_11_NUM )
 #define STRIPE_11_NUM       STRIPE_HOR_NUM          
 
-#define STRIPE_12_DDB       1
+#define STRIPE_12_DDB       2
 #define STRIPE_12_START     ( STRIPE_10_NUM + STRIPE_11_NUM + STRIPE_12_NUM )
 #define STRIPE_12_NUM       STRIPE_HOR_NUM          
 
+// 4. DDB-Modul
+#define STRIPE_13_DDB       3
+#define STRIPE_13_START     0
+#define STRIPE_13_NUM       STRIPE_HOR_NUM
 
+#define STRIPE_14_DDB       3
+#define STRIPE_14_START     ( STRIPE_13_NUM )
+#define STRIPE_14_NUM       STRIPE_HOR_NUM          
 
+#define STRIPE_15_DDB       3
+#define STRIPE_15_START     ( STRIPE_13_NUM + STRIPE_14_NUM )
+#define STRIPE_15_NUM       STRIPE_HOR_NUM          
 
+#define STRIPE_16_DDB       3
+#define STRIPE_16_START     ( STRIPE_13_NUM + STRIPE_14_NUM + STRIPE_15_NUM )
+#define STRIPE_16_NUM       STRIPE_HOR_NUM          
 
+// 5. DDB-Modul
+#define STRIPE_17_DDB       4
+#define STRIPE_17_START     0
+#define STRIPE_17_NUM       STRIPE_HOR_NUM
+
+#define STRIPE_18_DDB       4
+#define STRIPE_18_START     ( STRIPE_17_NUM )
+#define STRIPE_18_NUM       STRIPE_HOR_NUM          
+
+#define STRIPE_19_DDB       4
+#define STRIPE_19_START     ( STRIPE_17_NUM + STRIPE_18_NUM )
+#define STRIPE_19_NUM       STRIPE_HOR_NUM          
+
+#define STRIPE_20_DDB       4
+#define STRIPE_20_START     ( STRIPE_17_NUM + STRIPE_18_NUM + STRIPE_19_NUM )
+#define STRIPE_20_NUM       STRIPE_HOR_NUM       
+
+// 6. DDB-Modul
+#define STRIPE_21_DDB       5
+#define STRIPE_21_START     0
+#define STRIPE_21_NUM       STRIPE_HOR_NUM
+
+#define STRIPE_22_DDB       5
+#define STRIPE_22_START     ( STRIPE_21_NUM )
+#define STRIPE_22_NUM       STRIPE_HOR_NUM          
+
+#define STRIPE_23_DDB       5
+#define STRIPE_23_START     ( STRIPE_21_NUM + STRIPE_22_NUM )
+#define STRIPE_23_NUM       STRIPE_HOR_NUM          
+
+#define STRIPE_24_DDB       5
+#define STRIPE_24_START     ( STRIPE_21_NUM + STRIPE_22_NUM + STRIPE_23_NUM )
+#define STRIPE_24_NUM       STRIPE_HOR_NUM       
+
+// 4 x Vertikale Stripes
+// Raderstrahlen
+// 7. DDB-Modul
+#define STRIPE_25_DDB       6
+#define STRIPE_25_START     0
+#define STRIPE_25_NUM       STRIPE_VER_NUM
+
+#define STRIPE_26_DDB       6
+#define STRIPE_26_START     ( STRIPE_25_NUM )
+#define STRIPE_26_NUM       STRIPE_VER_NUM          
+
+#define STRIPE_27_DDB       6
+#define STRIPE_27_START     ( STRIPE_25_NUM + STRIPE_26_NUM )
+#define STRIPE_27_NUM       STRIPE_VER_NUM          
+
+#define STRIPE_28_DDB       6
+#define STRIPE_28_START     ( STRIPE_25_NUM + STRIPE_26_NUM + STRIPE_27_NUM )
+#define STRIPE_28_NUM       STRIPE_VER_NUM       
 
 
 
