@@ -219,6 +219,7 @@ void loop() {
 		global_output	= global_output & ~( 1 << 0 );
 		state_value		= state_value   |  ( 1 << 0 );
 		// Nur wenn keine Animation mehr läuft kann neu gestartet werden
+		uint8_t rand = random(24);
 		if(animation_state == 0) {
 			animation_state = 1;
 			//animation_seq();
