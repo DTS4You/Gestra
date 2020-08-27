@@ -125,6 +125,11 @@ void setup() {
 	track[22].setup(STRIPE_23_DDB, STRIPE_23_START, STRIPE_23_NUM);
 	track[23].setup(STRIPE_24_DDB, STRIPE_24_START, STRIPE_24_NUM);
 
+	radar[0].setup(STRIPE_25_DDB, STRIPE_25_START, STRIPE_25_NUM);
+	radar[1].setup(STRIPE_26_DDB, STRIPE_26_START, STRIPE_26_NUM);
+	radar[2].setup(STRIPE_27_DDB, STRIPE_27_START, STRIPE_27_NUM);
+	radar[3].setup(STRIPE_28_DDB, STRIPE_28_START, STRIPE_28_NUM);
+
 	/*
 	seg_1.setColorDef(F_LED_DEF);
 	seg_1.setColorOn(F_LED_ON);
