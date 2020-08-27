@@ -1,8 +1,8 @@
 // ################################################################################
 // ###                                                                          ###
 // ### Projekt			: Gestra												###
-// ### Version			: 0.01													###
-// ### Datum			: 08.08.2020											###
+// ### Version			: 0.10													###
+// ### Datum			: 27.08.2020											###
 // ###                                                                          ###
 // ### Änderung			: keine													###
 // ###																			###
@@ -130,51 +130,28 @@ void setup() {
 	radar[2].setup(STRIPE_27_DDB, STRIPE_27_START, STRIPE_27_NUM);
 	radar[3].setup(STRIPE_28_DDB, STRIPE_28_START, STRIPE_28_NUM);
 
-	/*
-	seg_1.setColorDef(F_LED_DEF);
-	seg_1.setColorOn(F_LED_ON);
-	seg_2.setColorDef(F_LED_DEF);
-	seg_2.setColorOn(F_LED_ON);
-	seg_3.setColorDef(F_LED_DEF);
-	seg_3.setColorOn(F_LED_ON);
-	seg_4.setColorDef(F_LED_DEF);
-	seg_4.setColorOn(F_LED_ON);
-	seg_5.setColorDef(F_LED_DEF);
-	seg_5.setColorOn(F_LED_ON);
-	seg_6.setColorDef(F_LED_DEF);
-	seg_6.setColorOn(F_LED_ON);
-	seg_7.setColorDef(F_LED_DEF);
-	seg_7.setColorOn(F_LED_ON);
-	seg_8.setColorDef(F_LED_DEF);
-	seg_8.setColorOn(F_LED_ON);
-	seg_9.setColorDef(F_LED_DEF);
-	seg_9.setColorOn(F_LED_ON);
-	*/
+	for (uint8_t i=0; i<24; i++) {
+		track[i].setColorDef(F_LED_DEF);
+		track[i].setColorOn(F_LED_ON);
+	}
+	
+	for (uint8_t i=0; i<4; i++) {
+		radar[i].setColorDef(F_LED_DEF);
+		radar[i].setColorOn(F_LED_ON);
+	}
 
 	//-------------------------------------------------------------------------
 	// Grundeinstellungen LED Stripes
 	//-------------------------------------------------------------------------
-	/*
-	seg_1.showRange(F_LED_DEF);
-	seg_2.showRange(F_LED_DEF);
-	seg_3.showRange(F_LED_DEF);
-	seg_4.showRange(F_LED_DEF);
-	seg_5.showRange(F_LED_DEF);
-	seg_6.showRange(F_LED_DEF);
-	seg_7.showRange(F_LED_DEF);
-	seg_8.showRange(F_LED_DEF);
-	seg_9.showRange(F_LED_DEF);
 
-	seg_1.setRunToggleOn();
-	seg_2.setRunToggleOn();
-	seg_3.setRunToggleOn();
-	seg_4.setRunToggleOn();
-	seg_5.setRunToggleOn();
-	seg_6.setRunToggleOn();
-	seg_7.setRunToggleOn();
-	seg_8.setRunToggleOn();
-	seg_9.setRunToggleOn();
-	*/
+	for (uint8_t i=0; i<24; i++) {
+		track[i].showRange(F_LED_DEF);
+	}
+	
+	for (uint8_t i=0; i<4; i++) {
+		radar[i].showRange(F_LED_DEF);
+	}
+	
 
 	ddb_refresh = true;
 	//-------------------------------------------------------------------------
