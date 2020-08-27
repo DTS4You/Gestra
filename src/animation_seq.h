@@ -5,6 +5,7 @@
 
 
 extern class Ledsegment track[];
+extern class Ledsegment radar[];
 extern class RBD::Timer sequence_timer; 
 extern uint8_t animation_state;
 extern bool anim_flag;
