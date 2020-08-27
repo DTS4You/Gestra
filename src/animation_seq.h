@@ -4,7 +4,7 @@
 #include "stripe_init.h"
 
 
-extern class Ledsegment seg_1, seg_2, seg_3, seg_4, seg_5, seg_6, seg_7, seg_8, seg_9;
+extern class Ledsegment track[];
 extern class RBD::Timer sequence_timer; 
 extern uint8_t animation_state;
 extern bool anim_flag;
@@ -13,7 +13,7 @@ extern uint8_t ddb_refresh;
 extern uint8_t global_output;
 extern uint8_t state_value;
 
-
+/*
 void animation_seq() {
     // ------------------------------------------------------------------------
     // Bodenstation -> Geo-SAT
@@ -96,3 +96,5 @@ void animation_seq() {
 	ddb_refresh = true;
 	// ------------------------------------------------------------------------
 }
+
+*/
