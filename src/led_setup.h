@@ -5,6 +5,7 @@
 #include <Arduino.h>
 #include "global_init.h"
 #include "stripe_init.h"
+#include "collision_value.h"
 #include "Ledsegment.h"
 
 

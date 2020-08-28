@@ -50,6 +50,11 @@ void Ledsegment::setColorOff(uint8_t c_index) {
 void Ledsegment::setColorOn(uint8_t c_index) {
 	_color_on 	= c_index;
 }
+void Ledsegment::setCollision(uint8_t col_h1, uint8_t col_h2, uint8_t col_v) {
+	_collision_h1	= col_h1;
+	_collision_h2	= col_h2;
+	_collision_v	= col_v;
+}
 // Led Segment Reset
 void Ledsegment::reset() {
 	_dir 		= false;
