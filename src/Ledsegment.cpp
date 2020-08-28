@@ -15,7 +15,9 @@ Ledsegment::Ledsegment() {
 	_begin 				= 0;
 	_step 				= 0;
 	_pos				= 0;
-	_collision			= 0;
+	_collision_h1		= 0;
+	_collision_h2		= 0;
+	_collision_v		= 0;
 	_color_def			= 0;
 	_color_off			= 0;
 	_color_on			= 0;
