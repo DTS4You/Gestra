@@ -31,6 +31,7 @@ class Ledsegment
 		uint8_t _begin;
 		uint8_t _step;
 		uint8_t	_pos;
+		uint8_t _collision;
 		uint8_t _color_off;
 		uint8_t _color_def;
 		uint8_t _color_on;
