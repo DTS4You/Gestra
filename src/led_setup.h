@@ -5,6 +5,7 @@
 #include <Arduino.h>
 #include "global_init.h"
 #include "stripe_init.h"
+#include "collision_value.h"
 #include "Ledsegment.h"
 
 
@@ -52,6 +53,8 @@ void led_setup() {
 		radar[i].setColorDef(F_LED_DEF);
 		radar[i].setColorOn(F_LED_ON);
 	}
+
+    track[0].setCollision(TRACK_01_COL_H1, TRACK_01_COL_H2, TRACK_01_COL_V);
 }
 
 #endif
