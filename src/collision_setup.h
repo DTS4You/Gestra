@@ -22,6 +22,9 @@ void collision_setup() {
     track[6].setCollision(TRACK_07_COL_H1, TRACK_07_COL_H2, TRACK_07_COL_V);
     track[7].setCollision(TRACK_08_COL_H1, TRACK_08_COL_H2, TRACK_08_COL_V);
     track[8].setCollision(TRACK_09_COL_H1, TRACK_09_COL_H2, TRACK_09_COL_V);
+    track[9].setCollision(TRACK_10_COL_H1, TRACK_10_COL_H2, TRACK_10_COL_V);
+    track[10].setCollision(TRACK_11_COL_H1, TRACK_11_COL_H2, TRACK_11_COL_V);
+    track[11].setCollision(TRACK_12_COL_H1, TRACK_12_COL_H2, TRACK_12_COL_V);
 }
 
 
