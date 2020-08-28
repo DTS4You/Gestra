@@ -23,6 +23,7 @@
 #define TRACK_04_COL_H2     2
 #define TRACK_04_COL_V      23
 #define TRACK_05_COL_H1     2
+#define TRACK_05_COL_H2     2
 #define TRACK_05_COL_V      23
 #define TRACK_06_COL_H1     3
 #define TRACK_06_COL_H2     3

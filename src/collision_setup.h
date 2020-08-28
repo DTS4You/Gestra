@@ -14,6 +14,14 @@ extern class Ledsegment radar[];
 
 void collision_setup() {
     track[0].setCollision(TRACK_01_COL_H1, TRACK_01_COL_H2, TRACK_01_COL_V);
+    track[1].setCollision(TRACK_02_COL_H1, TRACK_02_COL_H2, TRACK_02_COL_V);
+    track[2].setCollision(TRACK_03_COL_H1, TRACK_03_COL_H2, TRACK_03_COL_V);
+    track[3].setCollision(TRACK_04_COL_H1, TRACK_04_COL_H2, TRACK_04_COL_V);
+    track[4].setCollision(TRACK_05_COL_H1, TRACK_05_COL_H2, TRACK_05_COL_V);
+    track[5].setCollision(TRACK_06_COL_H1, TRACK_06_COL_H2, TRACK_06_COL_V);
+    track[6].setCollision(TRACK_07_COL_H1, TRACK_07_COL_H2, TRACK_07_COL_V);
+    track[7].setCollision(TRACK_08_COL_H1, TRACK_08_COL_H2, TRACK_08_COL_V);
+    track[8].setCollision(TRACK_09_COL_H1, TRACK_09_COL_H2, TRACK_09_COL_V);
 }
 
 
