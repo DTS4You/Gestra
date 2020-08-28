@@ -54,7 +54,21 @@ void led_setup() {
 		radar[i].setColorOn(F_LED_ON);
 	}
 
+<<<<<<< HEAD
     track[0].setCollision(TRACK_01_COL_H1, TRACK_01_COL_H2, TRACK_01_COL_V);
+=======
+	//-------------------------------------------------------------------------
+	// Grundeinstellungen LED Stripes
+	//-------------------------------------------------------------------------
+
+	for (uint8_t i=0; i<24; i++) {
+		track[i].showRange(F_LED_DEF);
+	}
+	
+	for (uint8_t i=0; i<4; i++) {
+		radar[i].showRange(F_LED_DEF);
+	}
+>>>>>>> ab8fd3cbfa8f595cf29ebf41262c83c6f8ad90f3
 }
 
 #endif
