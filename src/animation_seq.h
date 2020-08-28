@@ -9,7 +9,7 @@ extern class Ledsegment radar[];
 extern class RBD::Timer sequence_timer; 
 extern uint8_t animation_state;
 extern bool anim_flag;
-extern uint8_t ddb_refresh;
+extern bool ddb_refresh;
 //extern global_input;
 extern uint8_t global_output;
 extern uint8_t state_value;
