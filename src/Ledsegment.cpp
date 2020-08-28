@@ -120,3 +120,7 @@ bool Ledsegment::stepUp() {
 	}
 	return _end_of_run;
 }
+
+uint8_t Ledsegment::getPosition() {
+	return _step;
+}

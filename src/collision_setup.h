@@ -39,7 +39,4 @@ void collision_setup() {
     track[23].setCollision(TRACK_24_COL_H1, TRACK_24_COL_H2, TRACK_24_COL_V);
 }
 
-
-
-
 #endif
