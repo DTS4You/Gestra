@@ -18,6 +18,7 @@
 #define ANIMATION_TIME      40      // in ms
 #define SEQUENCE_TIME   	3000    // Dauer der Funktion 1 in ms
 #define SEQUENCE_LAST_STATE 8000    // Dauer des letzten Zustand der Sequenze in ms
+#define NEW_PART_DELAY      4000    // Dauer bis ein neues Teil losfligt in ms
 
 #define DDB_COUNT           8       // Anzahl der DigiDotBooster Module
 

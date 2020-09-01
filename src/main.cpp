@@ -51,6 +51,7 @@ RBD::Timer io_task;
 RBD::Timer button_blink;
 RBD::Timer animation_timer;
 RBD::Timer sequence_timer;
+RBD::Timer new_scrap_part;
 
 // Button Objekte anlegen
 RBD::ButtonExtern button_1(0);
@@ -100,6 +101,8 @@ void setup() {
 	animation_timer.restart();
 	sequence_timer.setTimeout(SEQUENCE_TIME);
 	sequence_timer.stop();
+	new_scrap_part.setTimeout(NEW_PART_DELAY);
+	new_scrap_part.stop();
 
 	led_setup();
 	collision_setup();
@@ -170,7 +173,6 @@ void loop() {
 		global_output	= global_output & ~( 1 << 0 );
 		state_value		= state_value   |  ( 1 << 0 );
 		// Nur wenn keine Animation mehr läuft kann neu gestartet werden
-		uint8_t rand = random(24);
 		if(animation_state == 0) {
 			animation_state = 1;
 			//animation_seq();
