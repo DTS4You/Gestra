@@ -16,7 +16,11 @@ extern uint8_t state_value;
 
 // Alles einen Schritt weiter
 void animation_step() {
-	// Mach was
+	// Radarstrahlen von unten nach oben, bei Kollision zurück nach unten.
+	for(uint8_t i=0; i<4; i++) {
+		radar[i].stepUp();
+	}
+	
 }
 /*
 void animation_seq() {
