@@ -14,6 +14,10 @@ extern bool ddb_refresh;
 extern uint8_t global_output;
 extern uint8_t state_value;
 
+// Alles einen Schritt weiter
+void animation_step() {
+	// Mach was
+}
 /*
 void animation_seq() {
     // ------------------------------------------------------------------------

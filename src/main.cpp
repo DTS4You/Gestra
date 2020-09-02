@@ -51,7 +51,7 @@ RBD::Timer io_task;
 RBD::Timer button_blink;
 RBD::Timer animation_timer;
 RBD::Timer sequence_timer;
-RBD::Timer new_scrap_part;
+RBD::Timer new_scrap_part_timer;
 
 // Button Objekte anlegen
 RBD::ButtonExtern button_1(0);
@@ -101,8 +101,8 @@ void setup() {
 	animation_timer.restart();
 	sequence_timer.setTimeout(SEQUENCE_TIME);
 	sequence_timer.stop();
-	new_scrap_part.setTimeout(NEW_PART_DELAY);
-	new_scrap_part.stop();
+	new_scrap_part_timer.setTimeout(NEW_PART_DELAY);
+	new_scrap_part_timer.stop();
 
 	led_setup();
 	collision_setup();
@@ -138,21 +138,11 @@ void loop() {
 		blink_flag = !blink_flag;
 	}
 	//---------------------------------------------------------------------------
-	// Animation Timer
+	// Animation Timer -> Alles einen Schritt weiter
 	//---------------------------------------------------------------------------
 	if(animation_timer.onRestart()) {
 		if(animation_state > 0) {
-			track[0].stepUp();
-			/*
-			seg_2.stepUp();
-			seg_3.stepUp();
-			seg_4.stepUp();
-			seg_5.stepUp();
-			seg_6.stepUp();
-			seg_7.stepUp();
-			seg_8.stepUp();
-			seg_9.stepUp();
-			*/
+			animation_step();
 			ddb_refresh = true;
 		}
  	}
