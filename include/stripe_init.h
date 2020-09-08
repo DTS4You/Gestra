@@ -9,8 +9,8 @@
 // LED Anordnung
 #ifndef DEBUG_LED
 
-#define STRIPE_HOR_NUM      64
-#define STRIPE_VER_NUM      50
+#define STRIPE_HOR_NUM      58
+#define STRIPE_VER_NUM      32
 
 // 24 x Horizontale Stripes
 // Flugbahnen des Weltraumschrott

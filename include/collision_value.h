@@ -6,10 +6,10 @@
 #define COLLISION_VALUE_H
 #endif
 
-#define COL_POS             120
+#define COL_POS             40
 // Kollisionswerte
-// H -> vorne - hinten
-// V -> Höhe
+// H -> links - rechts horizontal
+// V -> Höhe vertikal
 #define TRACK_01_COL_H1     1
 #define TRACK_01_COL_H2     0
 #define TRACK_01_COL_V      23
