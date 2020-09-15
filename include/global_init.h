@@ -41,7 +41,7 @@
 #define DDB_5_MAX_LED      240      // Anzahl der LEDs am DDB 5
 #define DDB_6_MAX_LED      240      // Anzahl der LEDs am DDB 6
 #define DDB_7_MAX_LED      200      // Anzahl der LEDs am DDB 7
-#define DDB_8_MAX_LED       16      // Anzahl der LEDs am DDB 8
+#define DDB_8_MAX_LED      200      // Anzahl der LEDs am DDB 8
 
 // MCP23017 I2C Adresse
 #define MCP23017            0x20    // 1. MCP23017 Adresse
