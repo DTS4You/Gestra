@@ -3,6 +3,7 @@
 #include "global_init.h"
 #include "stripe_init.h"
 #include "random.h"
+#include "collision_value.h"
 
 extern class Ledsegment track[];
 extern class Ledsegment radar[];
@@ -38,12 +39,16 @@ void anim_radar_step() {
 }
 
 void anim_track_step() {
-	#ifdef DEBUG_COM_TRACK_STEP
-		Serial.println("Animation -> Track -> Step");
-	#endif
-
 	for(uint8_t i=0; i<24; i++) {
 		track[i].stepUp();
+		if(track[i].getPosition() == COL_POS) {
+			// Teil auf Radarposition
+			#ifdef DEBUG_COM_TRACK_STEP
+				Serial.print("Track -> ");
+				Serial.print(i);
+				Serial.println(" auf Col-Position");
+			#endif
+		}
 	}
 	
 	radar[0].start();

@@ -95,7 +95,7 @@
 //#############################################################################
 
 // Horizontaler Kollisionswert von der linken Seite aus gezählt
-#define COL_POS             36
+#define COL_POS             5
 
 // Kollisionswerte
 // Raderstrahl

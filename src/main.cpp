@@ -14,10 +14,10 @@
 // ################################################################################
 
 #define DEBUG_STRIPE
-#define DEBUG_COM
-#define DEBUG_COM_STEP
-#define DEBUG_COM_RADAR_STEP
-#define DEBUG_COM_TRACK_STEP
+//#define DEBUG_COM
+//#define DEBUG_COM_STEP
+//#define DEBUG_COM_RADAR_STEP
+//#define DEBUG_COM_TRACK_STEP
 #define DEBUG_COLLISION
 #define DEBUG_NO_RANDOM
 
@@ -187,9 +187,6 @@ void loop() {
 	//-------------------------------------------------------------------------
 	// Taste 1 ist betätiget worden
 	if(button_1.onPressed()) {
-		#ifdef DEBUG_COM
-			Serial.println("Taste gedrückt");
-		#endif
 		// Nur wenn keine Animation mehr läuft kann neu gestartet werden
 		if(animation_state == 0) {
 			#ifdef DEBUG_COM

@@ -144,7 +144,7 @@
 #else
 
 // Debug Aufbau
-#define STRIPE_HOR_NUM      8
+#define STRIPE_HOR_NUM      16
 #define STRIPE_VER_NUM      16
 
 // 24 x Horizontale Stripes
