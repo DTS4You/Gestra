@@ -14,20 +14,32 @@ extern bool radar_refresh;
 extern uint8_t global_output;
 extern uint8_t state_value;
 
+
+void anim_radar_step() {
+// Radarstrahlen von unten nach oben, bei Kollision zurück nach unten.
+	for(uint8_t i=0; i<4; i++) {
+		if(radar[i].stepUp()) {
+			#ifdef DEBUG_COM_STEP
+				Serial.println("Animation -> Run");
+			#endif
+		} else {
+			#ifdef DEBUG_COM_STEP
+				Serial.println("Animation -> Stop");
+			#endif
+			radar[i].stop();
+		}
+	}
+	if(radar[0].isEndPosition() && radar[1].isEndPosition() && radar[2].isEndPosition() && radar[3].isEndPosition()) {
+		#ifdef DEBUG_COM_STEP
+			Serial.println("Alles Radar Strahlen fertig");
+		#endif
+	}
+}
+
 // Alles einen Schritt weiter
 void animation_step() {
 	#ifdef DEBUG_COM_STEP
-		Serial.println("Animation -> Step");
+		//Serial.println("Animation -> Step");
 	#endif
-
-	// Radarstrahlen von unten nach oben, bei Kollision zurück nach unten.
-	for(uint8_t i=0; i<4; i++) {
-		radar[i].stepUp();
-	}
-	
-
-	// ------------------------------------------------------------------------
-    // DDB Refresh
-	// ddb_refresh = true;
-	// ------------------------------------------------------------------------
+	anim_radar_step();
 }

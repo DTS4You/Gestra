@@ -13,6 +13,9 @@ extern class Ledsegment track[];
 extern class Ledsegment radar[];
 
 void led_setup() {
+
+	extern void radar_stop(void);
+	extern void track_stop(void);
 	// Segmente definieren
 	track[0].setup(STRIPE_01_DDB, STRIPE_01_START, STRIPE_01_NUM);
 	track[1].setup(STRIPE_02_DDB, STRIPE_02_START, STRIPE_02_NUM);
@@ -58,19 +61,26 @@ void led_setup() {
 	// Grundeinstellungen LED Stripes
 	//-------------------------------------------------------------------------
 
-	for (uint8_t i=0; i<24; i++) {
-		track[i].showRange(F_LED_DEF);
-	}
-	
-	for (uint8_t i=0; i<4; i++) {
-		radar[i].showRange(F_LED_DEF);
-	}
+	track_stop();
+	radar_stop();
 
 	// Freischaltung LED Stripes
 	radar[0].start();
 	radar[1].start();
 	radar[2].start();
 	radar[3].start();
+}
+
+void radar_stop() {
+	for (uint8_t i=0; i<4; i++) {
+		radar[i].stop();
+	}
+}
+
+void track_stop() {
+	for (uint8_t i=0; i<24; i++) {
+		track[i].stop();
+	}
 }
 
 #endif

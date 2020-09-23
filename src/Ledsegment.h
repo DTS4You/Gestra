@@ -23,6 +23,7 @@ class Ledsegment
 		void setRunToggleOn();
 		void setCollision(uint8_t, uint8_t, uint8_t);
 		uint8_t getPosition();
+		bool isEndPosition();
 
     protected:
 

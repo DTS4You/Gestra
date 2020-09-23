@@ -125,3 +125,7 @@ bool Ledsegment::stepUp() {
 uint8_t Ledsegment::getPosition() {
 	return _step;
 }
+
+bool Ledsegment::isEndPosition() {
+	return _end_of_run;
+}

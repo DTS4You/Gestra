@@ -8,13 +8,15 @@
 // ###																			###
 // ### Hardware			: Arduino Nano											###
 // ###					: Leiterplatte 17-0023-02 und 17-0027-02				###
-// ###					: 8 x Digi-Dot-Booster									###
+// ###					: 7 x Digi-Dot-Booster									###
+// ###					: 1 x Digi-Dot-Booster (Reserve)						###
 // ###					: 1 x Taster mit LED Ring								###
 // ################################################################################
 
-// #define DEBUG_LED
+#define DEBUG_STRIPE
 #define DEBUG_COM
-// define DEBUG_COM_STEP
+#define DEBUG_COM_STEP
+#define DEBUG_COLLISION
 
 #include <arduino.h>
 // #include "ascii_codes.h"
@@ -116,6 +118,7 @@ void setup() {
 	collision_setup();
 	
 	radar_refresh = true;
+	track_refresh = true;
 	//-------------------------------------------------------------------------
 
 	global_output = 0xFF;
@@ -167,20 +170,29 @@ void loop() {
 		#ifdef DEBUG_COM
 			Serial.println("Taste gedrückt");
 		#endif
-		global_output	= global_output & ~( 1 << 0 );
-		state_value		= state_value   |  ( 1 << 0 );
 		// Nur wenn keine Animation mehr läuft kann neu gestartet werden
 		if(animation_state == 0) {
 			#ifdef DEBUG_COM
 				Serial.println("Taste gedrückt -> Start -> State = 0");
 			#endif
+			global_output	= global_output & ~( 1 << 0 );
+			state_value		= state_value   |  ( 1 << 0 );
+
+			radar[0].start();
+			radar[1].start();
+			radar[2].start();
+			radar[3].start();
+
 			animation_state = 1;
+
 		} else {
 			#ifdef DEBUG_COM
 				Serial.println("Taste gedrückt -> Stop -> State > 1");
 			#endif
+			
 			global_output	= global_output |  ( 1 << 0 );
 			state_value		= state_value   & ~( 1 << 0 );
+			
 			animation_state = 0;
 		}
 	}
@@ -201,7 +213,7 @@ void loop() {
 		//delay(DDB_INIT_DELAY);		// Workaround for DDB SPI Problem
 		led_stripe[6].show();
 		//delay(DDB_INIT_DELAY);		// Workaround for DDB SPI Problem
-		track_refresh = false;
+		radar_refresh = false;
 	}
 
 }
