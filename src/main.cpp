@@ -16,7 +16,7 @@
 #define DEBUG_STRIPE
 #define DEBUG_COM
 #define DEBUG_COM_STEP
-// #define DEBUG_COM_RADAR_STEP
+#define DEBUG_COM_RADAR_STEP
 #define DEBUG_COM_TRACK_STEP
 #define DEBUG_COLLISION
 #define DEBUG_NO_RANDOM
@@ -163,7 +163,6 @@ void loop() {
 	if(animation_timer.onRestart()) {
 		if(animation_state > 0) {
 			animation_step();
-			radar_refresh = true;
 		}
  	}
 	//-------------------------------------------------------------------------

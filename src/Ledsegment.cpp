@@ -6,6 +6,8 @@
 
 #include "color_tables.h"
 
+// #define DEBUG_COM_LEDSEGMENT
+
 extern class DDBooster led_stripe[];
 
 extern uint8_t color[];
@@ -23,7 +25,6 @@ Ledsegment::Ledsegment() {
 	_color_off			= 0;
 	_color_on			= 0;
 	_dir 				= false;		// false -> right ; true -> left
-	_toggle				= false;
 	_end_of_run			= false;
 	_blank_start_end	= false;		// Start and end with a blank LED
 }
@@ -76,11 +77,11 @@ void Ledsegment::showPosition(uint8_t c_index) {
 }
 void Ledsegment::start() {
 	_enable = true;
+	_end_of_run = false;
 }
 void Ledsegment::stop() {
 	_step		= 0;
 	_enable 	= false;
-	_end_of_run	= false;
 	showRange(_color_def);
 }
 // Led segment set direction right
@@ -91,19 +92,17 @@ void Ledsegment::setRunRight() {
 void Ledsegment::setRunLeft() {
 	_dir 	= true;
 }
-// Led segment set toggle on
-void Ledsegment::setRunToggleOn() {
-	_toggle = true;
-}
 // Led animation step
-bool Ledsegment::stepUp() {
+void Ledsegment::stepUp() {
+	#ifdef DEBUG_COM_LEDSEGMENT
+		Serial.print("Ledsegment -> Step Up -> ");
+	#endif
 	if(_enable) {
 		showRange(_color_def);
-		if (!_end_of_run) {
-			_step 		= 0;
-			_end_of_run	= true;
-		}
 		if (_step < _num  ) {
+			#ifdef DEBUG_COM_LEDSEGMENT
+				Serial.print(_step);
+			#endif
 			if (!_dir) {
 				_pos = _step;
 			} else {
@@ -113,13 +112,16 @@ bool Ledsegment::stepUp() {
 			showPosition(_color_on);
 			_step++;
 		} else {
-			if(_toggle) {
-				_dir = !_dir;
-			}
-			_end_of_run = false;
+			#ifdef DEBUG_COM_LEDSEGMENT
+				Serial.print("Stop");
+			#endif
+			stop();
+			_end_of_run = true;
 		}
 	}
-	return _end_of_run;
+	#ifdef DEBUG_COM_LEDSEGMENT
+		Serial.println(" <");
+	#endif
 }
 
 uint8_t Ledsegment::getPosition() {

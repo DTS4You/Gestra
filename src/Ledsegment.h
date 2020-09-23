@@ -17,10 +17,9 @@ class Ledsegment
 		void stop();
 		void showRange(uint8_t);
 		void showPosition(uint8_t);
-		bool stepUp();
+		void stepUp();
 		void setRunLeft();
 		void setRunRight();
-		void setRunToggleOn();
 		void setCollision(uint8_t, uint8_t, uint8_t);
 		uint8_t getPosition();
 		bool isEndPosition();
@@ -41,7 +40,6 @@ class Ledsegment
 		uint8_t _color_on;
 		bool	_dir;
 		bool	_enable;
-		bool	_toggle;
 		bool	_end_of_run;
 		bool	_blank_start_end;
 };

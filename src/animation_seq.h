@@ -21,19 +21,11 @@ void anim_radar_step() {
 
 	if(animation_state == 1) {
 		for(uint8_t i=0; i<4; i++) {
-			if(radar[i].stepUp()) {
-				#ifdef DEBUG_COM_RADAR_STEP
-					Serial.println("Animation -> Run");
-				#endif
-			} else {
-				#ifdef DEBUG_COM_RADAR_STEP
-					Serial.println("Animation -> Stop");
-				#endif
-				radar[i].stop();
-			}
+			radar[i].stepUp();
 		}
-	
-		if((not radar[0].isEndPosition()) and (not radar[1].isEndPosition()) and (not radar[2].isEndPosition()) and (not radar[3].isEndPosition())) {
+		radar_refresh = true;
+
+		if((radar[0].isEndPosition()) and (radar[1].isEndPosition()) and (radar[2].isEndPosition()) and (radar[3].isEndPosition())) {
 			#ifdef DEBUG_COM_RADAR_STEP
 				Serial.println("Alles Radar Strahlen fertig");
 			#endif
@@ -51,11 +43,7 @@ void anim_track_step() {
 	#endif
 
 	for(uint8_t i=0; i<24; i++) {
-		if(track[i].stepUp()) {
-			// Track step up
-		} else {
-			track[i].stop();
-		}
+		track[i].stepUp();
 	}
 
 	radar[0].start();
