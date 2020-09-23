@@ -51,7 +51,6 @@ DDBooster led_stripe[DDB_COUNT];			// Objekt anlegen
 RBD::Timer io_task;
 RBD::Timer button_blink;
 RBD::Timer animation_timer;
-RBD::Timer sequence_timer;
 RBD::Timer new_scrap_part_timer;
 
 // Button Objekte anlegen
@@ -104,8 +103,6 @@ void setup() {
 	button_blink.restart();
 	animation_timer.setTimeout(ANIMATION_TIME);
 	animation_timer.restart();
-	sequence_timer.setTimeout(SEQUENCE_TIME);
-	sequence_timer.stop();
 	new_scrap_part_timer.setTimeout(NEW_PART_DELAY);
 	new_scrap_part_timer.stop();
 
@@ -119,7 +116,7 @@ void setup() {
 
 	// Debug on COM
 	#ifdef DEBUG_COM
-		Serial.println("Start");
+		Serial.println("--- Start ---");
 	#endif
 }
 
@@ -157,15 +154,6 @@ void loop() {
 		}
  	}
 	//---------------------------------------------------------------------------
-	// User Funktionen
-	//---------------------------------------------------------------------------
-	if(sequence_timer.onRestart()) {
-		if(animation_state > 0) {
-			animation_state++;
-			//animation_seq();
-		}
- 	}
-	//---------------------------------------------------------------------------
 	// Tasten abfragen
 	//---------------------------------------------------------------------------
 	// Taste 1 ist betätiget worden
@@ -181,8 +169,6 @@ void loop() {
 				Serial.println("Taste gedrückt -> Start -> State = 0");
 			#endif
 			animation_state = 1;
-			//animation_seq();
-			sequence_timer.restart();
 		} else {
 			#ifdef DEBUG_COM
 				Serial.println("Taste gedrückt -> Stop -> State > 1");
