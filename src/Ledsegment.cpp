@@ -98,8 +98,11 @@ void Ledsegment::stepUp() {
 		Serial.print("Ledsegment -> Step Up -> ");
 	#endif
 	if(_enable) {
+		#ifdef DEBUG_COM_LEDSEGMENT
+			Serial.print("Enable -> ");
+		#endif
 		showRange(_color_def);
-		if (_step < _num  ) {
+		if (_step < _num ) {
 			#ifdef DEBUG_COM_LEDSEGMENT
 				Serial.print(_step);
 			#endif

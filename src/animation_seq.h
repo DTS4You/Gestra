@@ -34,7 +34,7 @@ void anim_radar_step() {
 	}
 	if(animation_state == 2) {
 		anim_track_step();
-	}	
+	}
 }
 
 void anim_track_step() {
@@ -45,7 +45,7 @@ void anim_track_step() {
 	for(uint8_t i=0; i<24; i++) {
 		track[i].stepUp();
 	}
-
+	
 	radar[0].start();
 	radar[1].start();
 	radar[2].start();

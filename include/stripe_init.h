@@ -145,7 +145,7 @@
 
 // Debug Aufbau
 #define STRIPE_HOR_NUM      8
-#define STRIPE_VER_NUM      4
+#define STRIPE_VER_NUM      16
 
 // 24 x Horizontale Stripes
 // Flugbahnen des Weltraumschrott
