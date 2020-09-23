@@ -1,108 +1,38 @@
+#ifndef RANDOM_H
+#define RANDOM_H
+
+//-----------------------------------------------------------------------------
+// Zufallsgenerator mit bestimmter Verteilung
+//-----------------------------------------------------------------------------
+// Arduino in Section Setup
+// setup -> randomSeed(analogRead(0));
+// loop  -> generate_random();
+//-----------------------------------------------------------------------------
+
 #include <Arduino.h>
-#include "Ledsegment.h"
-#include "global_init.h"
-#include "stripe_init.h"
 
 
-extern class Ledsegment track[];
-extern class Ledsegment radar[];
-extern uint8_t animation_state;
-extern bool anim_flag;
-extern bool ddb_refresh;
-//extern global_input;
-extern uint8_t global_output;
-extern uint8_t state_value;
+const PROGMEM uint8_t list[] = {1,2,3,4,5,5,6,6,7,7,8,8,8,9,9,9,10,10,10,10,11,11,11,11,11,12,12,12,12,12,12,13,13,13,13,13,13,14,14,14,14,14,15,15,15,15,16,16,16,17,17,17,18,18,19,19,20,20,21,22,23,24};
 
-// Alles einen Schritt weiter
-void animation_step() {
-	// Radarstrahlen von unten nach oben, bei Kollision zurück nach unten.
-	for(uint8_t i=0; i<4; i++) {
-		radar[i].stepUp();
-	}
-	
-}
-/*
-void animation_seq() {
-    // ------------------------------------------------------------------------
-    // Bodenstation -> Geo-SAT
-    // ------------------------------------------------------------------------
-	if(animation_state == 1) {
-		seg_1.start();
-	}
-	// ------------------------------------------------------------------------
-    // Bodenstation -> 1. Cluster-SAT
-    // ------------------------------------------------------------------------
-	if(animation_state == 2) {
-		seg_3.start();
-		//seg_3.start();
-	}
-	// ------------------------------------------------------------------------
-    // 1. Cluster-SAT -> 2. Cluster-SAT
-    // ------------------------------------------------------------------------
-    if(animation_state == 3) {
-        seg_4.start();
-	}
-	// ------------------------------------------------------------------------
-    // 2. Cluster-SAT -> 3. Cluster-SAT
-    // ------------------------------------------------------------------------
-    if(animation_state == 4) {
-        seg_5.start();
-	}
-    // ------------------------------------------------------------------------
-    // 3. Cluster-SAT -> 4. Cluster-SAT
-    // ------------------------------------------------------------------------
-    if(animation_state == 5) {
-		seg_6.start();
-	}
-    // ------------------------------------------------------------------------
-    // 2. Cluster-SAT -> 4. Cluster-SAT
-    // ------------------------------------------------------------------------
-    if(animation_state == 6) {
-		seg_9.start();
-	}
-    // ------------------------------------------------------------------------
-    // 4. Cluster-SAT -> 1. Cluster-SAT
-    // ------------------------------------------------------------------------
-    if(animation_state == 7) {
-		seg_7.start();
-	}
-    // ------------------------------------------------------------------------
-    // 1. Cluster-SAT -> 3. Cluster-SAT
-    // ------------------------------------------------------------------------
-    if(animation_state == 8) {
-		seg_8.start();
-	}
-	// ------------------------------------------------------------------------
-    // Geo-SAT -> 3. Cluster-SAT
-    // ------------------------------------------------------------------------
-    if(animation_state == 9) {
-		seg_2.start();
-		sequence_timer.setTimeout(SEQUENCE_LAST_STATE);
-	}
-	// ------------------------------------------------------------------------
-    // Sequenz-Ende !!!
-    // ------------------------------------------------------------------------
-    if(animation_state == 10) {
-    	seg_1.reset();
-		seg_2.reset();
-		seg_3.reset();
-		seg_4.reset();
-		seg_5.reset();
-		seg_6.reset();
-		seg_7.reset();
-		seg_8.reset();
-		seg_9.reset();
-        sequence_timer.stop();
-		sequence_timer.setTimeout(SEQUENCE_TIME);
-		animation_state = 0;
-
-		global_output	= global_output |  ( 1 << 0 );
-		state_value		= state_value   & ~( 1 << 0 );
-	}
-	// ------------------------------------------------------------------------
-    // DDB Refresh
-	ddb_refresh = true;
-	// ------------------------------------------------------------------------
+uint8_t generate_random() {
+  uint8_t z;
+  uint8_t temp = 0;
+  extern uint8_t get_value_of_list();
+  z = get_value_of_list();
+  if(z == temp) {
+      z = get_value_of_list();
+  }
+  
+  temp = z;
+  return z;			// Rückgabewert -> Zufallszahl
 }
 
-*/
+uint8_t get_value_of_list() {
+  uint8_t i;
+  uint8_t x;
+  i = random(sizeof(list)-1);
+  x = pgm_read_byte(&list[i]);
+  return x;
+}
+
+#endif
