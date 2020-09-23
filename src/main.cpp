@@ -65,6 +65,10 @@ Ledsegment radar[4];
 // Setup
 // ----------------------------------------------------------------------------
 void setup() {
+	// Debug on COM
+	#ifdef DEBUG_COM
+		Serial.begin(115200); 		// open the serial port at 9600 bps:
+	#endif
 
 	// I2C Setup
 	I2c.begin();
@@ -112,6 +116,11 @@ void setup() {
 	//-------------------------------------------------------------------------
 
 	global_output = 0xFF;
+
+	// Debug on COM
+	#ifdef DEBUG_COM
+		Serial.println("Start");
+	#endif
 }
 
 // ----------------------------------------------------------------------------
@@ -178,8 +187,9 @@ void loop() {
 			#ifdef DEBUG_COM
 				Serial.println("Taste gedrückt -> Stop -> State > 1");
 			#endif
+			global_output	= global_output |  ( 1 << 0 );
+			state_value		= state_value   & ~( 1 << 0 );
 			animation_state = 0;
-
 		}
 	}
 	//-------------------------------------------------------------------------

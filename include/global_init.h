@@ -8,17 +8,27 @@
 #define EIN             	HIGH
 #define AUS             	LOW
 
-// --- Farbzuweisungen
+// Farbzuweisungen
 #define F_LED_ON			1
 #define F_LED_DEF			5
 #define F_LED_OFF			0
+// -> Radar
+#define RADAR_LED_ON        1
+#define RADAR_LED_DEF       5
+#define RADAR_LED_OFF       0
+// -> Track
+#define TRACK_LED_ON        1
+#define TRACK_LED_DEF       5
+#define TRACK_LED_OFF       0
 
+// Timer 
 #define IO_LOOP_TIME		50		// in ms
 #define BUTTON_BLINK_TIME	300     // in ms
 #define ANIMATION_TIME      40      // in ms
 #define SEQUENCE_TIME       10000   // Anzeigedauer in ms
 #define NEW_PART_DELAY      4000    // Dauer bis ein neues Teil losfligt in ms
 
+// Digi-Dot-Booster
 #define DDB_COUNT           8       // Anzahl der DigiDotBooster Module
 
 #define DDB_1_CS_PIN        2       // Chip Select Pin DDB 1
@@ -32,8 +42,6 @@
 
 #define DDB_INIT_DELAY		5		// DDB Befehlsverzögerung
 
-#define ARDUINOLED			13    	// Arduino LED on board
-
 #define DDB_1_MAX_LED      240      // Anzahl der LEDs am DDB 1
 #define DDB_2_MAX_LED      240      // Anzahl der LEDs am DDB 2
 #define DDB_3_MAX_LED      240      // Anzahl der LEDs am DDB 3
@@ -42,6 +50,9 @@
 #define DDB_6_MAX_LED      240      // Anzahl der LEDs am DDB 6
 #define DDB_7_MAX_LED      200      // Anzahl der LEDs am DDB 7
 #define DDB_8_MAX_LED      200      // Anzahl der LEDs am DDB 8
+
+// Arduino Board LED
+#define ARDUINOLED			13    	// Arduino LED on board
 
 // MCP23017 I2C Adresse
 #define MCP23017            0x20    // 1. MCP23017 Adresse
