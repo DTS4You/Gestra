@@ -58,6 +58,39 @@ void led_setup() {
 	}
 
 	//-------------------------------------------------------------------------
+	// LED-Stripes-Ausrichtung
+	//-------------------------------------------------------------------------
+	radar[0].setRunLeft();
+	radar[1].setRunRight();
+	radar[2].setRunLeft();
+	radar[3].setRunRight();
+
+	track[0].setRunLeft();
+	track[1].setRunLeft();
+	track[2].setRunLeft();
+	track[3].setRunLeft();
+	track[4].setRunLeft();
+	track[5].setRunLeft();
+	track[6].setRunLeft();
+	track[7].setRunLeft();
+	track[8].setRunLeft();
+	track[9].setRunLeft();
+	track[10].setRunLeft();
+	track[11].setRunLeft();
+	track[12].setRunLeft();
+	track[13].setRunLeft();
+	track[14].setRunLeft();
+	track[15].setRunLeft();
+	track[16].setRunLeft();
+	track[17].setRunLeft();
+	track[18].setRunLeft();
+	track[19].setRunLeft();
+	track[20].setRunLeft();
+	track[21].setRunLeft();
+	track[22].setRunLeft();
+	track[23].setRunLeft();
+
+	//-------------------------------------------------------------------------
 	// Grundeinstellungen LED Stripes
 	//-------------------------------------------------------------------------
 

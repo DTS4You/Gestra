@@ -209,6 +209,9 @@ void loop() {
 
 			radar_stop();
 			radar_refresh = true;
+
+			track_stop();
+			track_refresh = true;
 		}
 	}
 	//-------------------------------------------------------------------------

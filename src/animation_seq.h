@@ -38,7 +38,6 @@ void anim_radar_step() {
 				Serial.println("Alles Radar Strahlen fertig");
 			#endif
 			animation_state = 2;
-			anim_track_step();
 		}
 	}
 	if(animation_state == 2) {
