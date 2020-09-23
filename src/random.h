@@ -9,6 +9,11 @@
 // loop  -> generate_random();
 //-----------------------------------------------------------------------------
 
+// #ifdef DEBUG_COM
+// Serial.println(generate_random());
+// #endif
+
+
 #include <Arduino.h>
 
 
