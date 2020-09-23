@@ -65,6 +65,7 @@ void Ledsegment::reset() {
 void Ledsegment::showRange(uint8_t c_index) {
 	led_stripe[_ddb].setRGB(color_[c_index][0], color_[c_index][1], color_[c_index][2]);
 	led_stripe[_ddb].setRange(_begin, _begin + _num - 1);
+	delay(DDB_CMD_DELAY);
 	//led_stripe[_ddb].show();
 }
 // Led segment color on position with Color-Index

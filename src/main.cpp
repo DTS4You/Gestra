@@ -14,6 +14,7 @@
 
 // #define DEBUG_LED
 #define DEBUG_COM
+// define DEBUG_COM_STEP
 
 #include <arduino.h>
 // #include "ascii_codes.h"
@@ -37,7 +38,8 @@
 
 const uint8_t ddb_cs_pin[DDB_COUNT] 	= { DDB_1_CS_PIN, DDB_2_CS_PIN, DDB_3_CS_PIN, DDB_4_CS_PIN, DDB_5_CS_PIN, DDB_6_CS_PIN, DDB_7_CS_PIN, DDB_8_CS_PIN};
 const uint8_t ddb_num_led[DDB_COUNT]	= { DDB_1_MAX_LED, DDB_2_MAX_LED, DDB_3_MAX_LED, DDB_4_MAX_LED, DDB_5_MAX_LED, DDB_6_MAX_LED, DDB_7_MAX_LED, DDB_8_MAX_LED };
-bool ddb_refresh = false;
+bool track_refresh = false;
+bool radar_refresh = false;
 
 //uint8_t	global_input	= 0;	 // Wird im Objekt ButtonExtern erzeugt
 uint8_t	global_output	= 0;
@@ -69,7 +71,7 @@ void setup() {
 	#ifdef DEBUG_COM
 		Serial.begin(115200); 		// open the serial port at 9600 bps:
 	#endif
-	
+
 	// Random Seed 
 	randomSeed(analogRead(0));
 
@@ -113,7 +115,7 @@ void setup() {
 	led_setup();
 	collision_setup();
 	
-	ddb_refresh = true;
+	radar_refresh = true;
 	//-------------------------------------------------------------------------
 
 	global_output = 0xFF;
@@ -154,7 +156,7 @@ void loop() {
 	if(animation_timer.onRestart()) {
 		if(animation_state > 0) {
 			animation_step();
-			ddb_refresh = true;
+			radar_refresh = true;
 		}
  	}
 	//---------------------------------------------------------------------------
@@ -185,14 +187,21 @@ void loop() {
 	//-------------------------------------------------------------------------
 	// Refresh Task -> Alle Digi-Dot Booster ddb.show() aufrufen
 	//-------------------------------------------------------------------------
-	if(ddb_refresh)
-	{
+	if(track_refresh) {
 		delay(DDB_INIT_DELAY);			// Workaround for DDB SPI Problem
 		for (uint8_t i = 0; i < DDB_COUNT; i++)
 		{
 			led_stripe[i].show();
 			delay(DDB_INIT_DELAY);		// Workaround for DDB SPI Problem
 		}
-		ddb_refresh = false;
+		track_refresh = false;
 	}
+
+	if(radar_refresh) {
+		//delay(DDB_INIT_DELAY);		// Workaround for DDB SPI Problem
+		led_stripe[6].show();
+		//delay(DDB_INIT_DELAY);		// Workaround for DDB SPI Problem
+		track_refresh = false;
+	}
+
 }

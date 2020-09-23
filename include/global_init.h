@@ -24,7 +24,7 @@
 // Timer 
 #define IO_LOOP_TIME		50		// in ms
 #define BUTTON_BLINK_TIME	300     // in ms
-#define ANIMATION_TIME      40      // in ms
+#define ANIMATION_TIME      10      // in ms
 #define SEQUENCE_TIME       10000   // Anzeigedauer in ms
 #define NEW_PART_DELAY      4000    // Dauer bis ein neues Teil losfligt in ms
 
@@ -40,8 +40,6 @@
 #define DDB_7_CS_PIN        8       // Chip Select Pin DDB 7
 #define DDB_8_CS_PIN        9       // Chip Select Pin DDB 8
 
-#define DDB_INIT_DELAY		5		// DDB Befehlsverzögerung
-
 #define DDB_1_MAX_LED      240      // Anzahl der LEDs am DDB 1
 #define DDB_2_MAX_LED      240      // Anzahl der LEDs am DDB 2
 #define DDB_3_MAX_LED      240      // Anzahl der LEDs am DDB 3
@@ -50,6 +48,9 @@
 #define DDB_6_MAX_LED      240      // Anzahl der LEDs am DDB 6
 #define DDB_7_MAX_LED      200      // Anzahl der LEDs am DDB 7
 #define DDB_8_MAX_LED      200      // Anzahl der LEDs am DDB 8
+
+#define DDB_INIT_DELAY		2		// DDB Initialisierungsverzögerung in ms (Min. 2 ms)
+#define DDB_CMD_DELAY       2       // DDB Befehlsverzögerung in ms (Min. 2ms)
 
 // Arduino Board LED
 #define ARDUINOLED			13    	// Arduino LED on board

@@ -8,14 +8,15 @@ extern class Ledsegment track[];
 extern class Ledsegment radar[];
 extern uint8_t animation_state;
 extern bool anim_flag;
-extern bool ddb_refresh;
+extern bool track_refresh;
+extern bool radar_refresh;
 //extern global_input;
 extern uint8_t global_output;
 extern uint8_t state_value;
 
 // Alles einen Schritt weiter
 void animation_step() {
-	#ifdef DEBUG_COM
+	#ifdef DEBUG_COM_STEP
 		Serial.println("Animation -> Step");
 	#endif
 
@@ -27,6 +28,6 @@ void animation_step() {
 
 	// ------------------------------------------------------------------------
     // DDB Refresh
-	ddb_refresh = true;
+	// ddb_refresh = true;
 	// ------------------------------------------------------------------------
 }

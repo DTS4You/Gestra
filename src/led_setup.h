@@ -65,6 +65,12 @@ void led_setup() {
 	for (uint8_t i=0; i<4; i++) {
 		radar[i].showRange(F_LED_DEF);
 	}
+
+	// Freischaltung LED Stripes
+	radar[0].start();
+	radar[1].start();
+	radar[2].start();
+	radar[3].start();
 }
 
 #endif
