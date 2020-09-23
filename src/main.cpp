@@ -16,6 +16,8 @@
 #define DEBUG_STRIPE
 #define DEBUG_COM
 #define DEBUG_COM_STEP
+// #define DEBUG_COM_RADAR_STEP
+#define DEBUG_COM_TRACK_STEP
 #define DEBUG_COLLISION
 
 #include <arduino.h>
@@ -153,18 +155,26 @@ void loop() {
 		}
 		blink_flag = !blink_flag;
 	}
-	//---------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
 	// Animation Timer -> Alles einen Schritt weiter
-	//---------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
 	if(animation_timer.onRestart()) {
 		if(animation_state > 0) {
 			animation_step();
 			radar_refresh = true;
 		}
  	}
-	//---------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
+	// New scarp timer
+	//-------------------------------------------------------------------------
+	if(new_scrap_part_timer.onRestart()) {
+		#ifdef DEBUG_COM
+			Serial.println("Neues Schrottteil erzeugen");
+		#endif
+	}
+	//-------------------------------------------------------------------------
 	// Tasten abfragen
-	//---------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
 	// Taste 1 ist betätiget worden
 	if(button_1.onPressed()) {
 		#ifdef DEBUG_COM
@@ -184,6 +194,7 @@ void loop() {
 			radar[3].start();
 
 			animation_state = 1;
+			new_scrap_part_timer.restart();
 
 		} else {
 			#ifdef DEBUG_COM
@@ -194,6 +205,10 @@ void loop() {
 			state_value		= state_value   & ~( 1 << 0 );
 			
 			animation_state = 0;
+			new_scrap_part_timer.stop();
+
+			radar_stop();
+			radar_refresh = true;
 		}
 	}
 	//-------------------------------------------------------------------------

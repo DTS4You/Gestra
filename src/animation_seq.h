@@ -17,23 +17,45 @@ extern uint8_t state_value;
 
 void anim_radar_step() {
 // Radarstrahlen von unten nach oben, bei Kollision zurück nach unten.
-	for(uint8_t i=0; i<4; i++) {
-		if(radar[i].stepUp()) {
-			#ifdef DEBUG_COM_STEP
-				Serial.println("Animation -> Run");
+	extern void anim_track_step(void);
+
+	if(animation_state == 1) {
+		for(uint8_t i=0; i<4; i++) {
+			if(radar[i].stepUp()) {
+				#ifdef DEBUG_COM_RADAR_STEP
+					Serial.println("Animation -> Run");
+				#endif
+			} else {
+				#ifdef DEBUG_COM_RADAR_STEP
+					Serial.println("Animation -> Stop");
+				#endif
+				radar[i].stop();
+			}
+		}
+	
+		if((not radar[0].isEndPosition()) and (not radar[1].isEndPosition()) and (not radar[2].isEndPosition()) and (not radar[3].isEndPosition())) {
+			#ifdef DEBUG_COM_RADAR_STEP
+				Serial.println("Alles Radar Strahlen fertig");
 			#endif
-		} else {
-			#ifdef DEBUG_COM_STEP
-				Serial.println("Animation -> Stop");
-			#endif
-			radar[i].stop();
+			animation_state = 2;
+			anim_track_step();
 		}
 	}
-	if(radar[0].isEndPosition() && radar[1].isEndPosition() && radar[2].isEndPosition() && radar[3].isEndPosition()) {
-		#ifdef DEBUG_COM_STEP
-			Serial.println("Alles Radar Strahlen fertig");
-		#endif
-	}
+	if(animation_state == 2) {
+		anim_track_step();
+	}	
+}
+
+void anim_track_step() {
+	#ifdef DEBUG_COM_TRACK_STEP
+		Serial.println("Animation -> Track -> Step");
+	#endif
+	radar[0].start();
+	radar[1].start();
+	radar[2].start();
+	radar[3].start();
+
+	animation_state = 1;
 }
 
 // Alles einen Schritt weiter
