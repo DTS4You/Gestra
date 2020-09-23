@@ -13,6 +13,7 @@
 // ################################################################################
 
 // #define DEBUG_LED
+#define DEBUG_COM
 
 #include <arduino.h>
 // #include "ascii_codes.h"
@@ -160,13 +161,25 @@ void loop() {
 	//---------------------------------------------------------------------------
 	// Taste 1 ist betätiget worden
 	if(button_1.onPressed()) {
+		#ifdef DEBUG_COM
+			Serial.println("Taste gedrückt");
+		#endif
 		global_output	= global_output & ~( 1 << 0 );
 		state_value		= state_value   |  ( 1 << 0 );
 		// Nur wenn keine Animation mehr läuft kann neu gestartet werden
 		if(animation_state == 0) {
+			#ifdef DEBUG_COM
+				Serial.println("Taste gedrückt -> Start -> State = 0");
+			#endif
 			animation_state = 1;
 			//animation_seq();
 			sequence_timer.restart();
+		} else {
+			#ifdef DEBUG_COM
+				Serial.println("Taste gedrückt -> Stop -> State > 1");
+			#endif
+			animation_state = 0;
+
 		}
 	}
 	//-------------------------------------------------------------------------
