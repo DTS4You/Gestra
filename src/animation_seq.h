@@ -49,12 +49,23 @@ void anim_track_step() {
 	#ifdef DEBUG_COM_TRACK_STEP
 		Serial.println("Animation -> Track -> Step");
 	#endif
+
+	for(uint8_t i=0; i<24; i++) {
+		if(track[i].stepUp()) {
+			// Track step up
+		} else {
+			track[i].stop();
+		}
+	}
+
 	radar[0].start();
 	radar[1].start();
 	radar[2].start();
 	radar[3].start();
 
 	animation_state = 1;
+
+	track_refresh = true;
 }
 
 // Alles einen Schritt weiter

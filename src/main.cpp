@@ -19,6 +19,7 @@
 // #define DEBUG_COM_RADAR_STEP
 #define DEBUG_COM_TRACK_STEP
 #define DEBUG_COLLISION
+#define DEBUG_NO_RANDOM
 
 #include <arduino.h>
 // #include "ascii_codes.h"
@@ -50,6 +51,7 @@ uint8_t	global_output	= 0;
 uint8_t blink_flag		= 0;
 uint8_t state_value		= 0;
 uint8_t animation_state	= 0;
+uint8_t new_scrap_part 	= 0;
 
 // Digi-Dot-Booster Objekte erzeugen
 DDBooster led_stripe[DDB_COUNT];			// Objekt anlegen
@@ -169,8 +171,17 @@ void loop() {
 	//-------------------------------------------------------------------------
 	if(new_scrap_part_timer.onRestart()) {
 		#ifdef DEBUG_COM
-			Serial.println("Neues Schrottteil erzeugen");
+			Serial.print("Neues Schrottteil erzeugen -> ");
 		#endif
+		#ifdef DEBUG_NO_RANDOM
+			new_scrap_part = 1;
+		#else
+			new_scrap_part = generate_random();
+		#endif
+		#ifdef DEBUG_COM
+			Serial.println(new_scrap_part);
+		#endif
+		track[new_scrap_part - 1].start();
 	}
 	//-------------------------------------------------------------------------
 	// Tasten abfragen
@@ -219,7 +230,7 @@ void loop() {
 	//-------------------------------------------------------------------------
 	if(track_refresh) {
 		delay(DDB_INIT_DELAY);			// Workaround for DDB SPI Problem
-		for (uint8_t i = 0; i < DDB_COUNT; i++)
+		for (uint8_t i = 0; i < 6; i++)
 		{
 			led_stripe[i].show();
 			delay(DDB_INIT_DELAY);		// Workaround for DDB SPI Problem

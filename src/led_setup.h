@@ -60,35 +60,35 @@ void led_setup() {
 	//-------------------------------------------------------------------------
 	// LED-Stripes-Ausrichtung
 	//-------------------------------------------------------------------------
-	radar[0].setRunLeft();
-	radar[1].setRunRight();
-	radar[2].setRunLeft();
-	radar[3].setRunRight();
+	radar[0].setRunRight();
+	radar[1].setRunLeft();
+	radar[2].setRunRight();
+	radar[3].setRunLeft();
 
-	track[0].setRunLeft();
-	track[1].setRunLeft();
-	track[2].setRunLeft();
-	track[3].setRunLeft();
-	track[4].setRunLeft();
-	track[5].setRunLeft();
-	track[6].setRunLeft();
-	track[7].setRunLeft();
-	track[8].setRunLeft();
-	track[9].setRunLeft();
-	track[10].setRunLeft();
-	track[11].setRunLeft();
-	track[12].setRunLeft();
-	track[13].setRunLeft();
-	track[14].setRunLeft();
-	track[15].setRunLeft();
-	track[16].setRunLeft();
-	track[17].setRunLeft();
-	track[18].setRunLeft();
-	track[19].setRunLeft();
-	track[20].setRunLeft();
-	track[21].setRunLeft();
-	track[22].setRunLeft();
-	track[23].setRunLeft();
+	track[0].setRunRight();
+	track[1].setRunRight();
+	track[2].setRunRight();
+	track[3].setRunRight();
+	track[4].setRunRight();
+	track[5].setRunRight();
+	track[6].setRunRight();
+	track[7].setRunRight();
+	track[8].setRunRight();
+	track[9].setRunRight();
+	track[10].setRunRight();
+	track[11].setRunRight();
+	track[12].setRunRight();
+	track[13].setRunRight();
+	track[14].setRunRight();
+	track[15].setRunRight();
+	track[16].setRunRight();
+	track[17].setRunRight();
+	track[18].setRunRight();
+	track[19].setRunRight();
+	track[20].setRunRight();
+	track[21].setRunRight();
+	track[22].setRunRight();
+	track[23].setRunRight();
 
 	//-------------------------------------------------------------------------
 	// Grundeinstellungen LED Stripes
@@ -97,11 +97,6 @@ void led_setup() {
 	track_stop();
 	radar_stop();
 
-	// Freischaltung LED Stripes
-	radar[0].start();
-	radar[1].start();
-	radar[2].start();
-	radar[3].start();
 }
 
 void radar_stop() {
