@@ -37,6 +37,7 @@
 #include "I2C.h"
 
 #include "Ledsegment.h"
+#include "Tracksegment.h"
 #include "animation_seq.h"
 #include "led_setup.h"
 #include "collision_setup.h"
@@ -67,7 +68,7 @@ RBD::Timer new_scrap_part_timer;
 RBD::ButtonExtern button_1(0);
 
 // LED Segmente Objekte anlegen
-Ledsegment track[24];
+Tracksegment track[24];
 Ledsegment radar[4];
 
 // ----------------------------------------------------------------------------

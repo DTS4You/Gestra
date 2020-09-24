@@ -7,9 +7,10 @@
 #include "stripe_init.h"
 #include "collision_value.h"
 #include "Ledsegment.h"
+#include "Tracksegment.h"
 
 
-extern class Ledsegment track[];
+extern class Tracksegment track[];
 extern class Ledsegment radar[];
 
 void collision_setup() {

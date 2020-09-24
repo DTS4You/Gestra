@@ -1,11 +1,12 @@
 #include <Arduino.h>
 #include "Ledsegment.h"
+#include "Tracksegment.h"
 #include "global_init.h"
 #include "stripe_init.h"
 #include "random.h"
 #include "collision_value.h"
 
-extern class Ledsegment track[];
+extern class Tracksegment track[];
 extern class Ledsegment radar[];
 extern uint8_t animation_state;
 extern bool anim_flag;
@@ -42,6 +43,9 @@ void anim_track_step() {
 	#ifdef DEBUG_COM_TRACK_STEP
 		Serial.println("Track -> Step");
 	#endif
+	//-------------------------------------------------------------------------
+	// Alle 24 Tracks abarbeiten
+	//-------------------------------------------------------------------------
 	for(uint8_t i=0; i<24; i++) {
 		track[i].stepUp();
 		#ifdef DEBUG_COM_TRACK_STEP_POSITION
@@ -49,8 +53,8 @@ void anim_track_step() {
 			Serial.print(track[i].getPosition());
 			Serial.println(" <");
 		#endif
+		// Teil auf Radarposition
 		if(track[i].getPosition() == COL_POS) {
-			// Teil auf Radarposition
 			#ifdef DEBUG_COM_TRACK_STEP
 				Serial.print("Track -> ");
 				Serial.print(i);
