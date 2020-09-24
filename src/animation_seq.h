@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include "Ledsegment.h"
+#include "Radarsegment.h"
 #include "Tracksegment.h"
 #include "global_init.h"
 #include "stripe_init.h"
@@ -7,7 +7,7 @@
 #include "collision_value.h"
 
 extern class Tracksegment track[];
-extern class Ledsegment radar[];
+extern class Radarsegment radar[];
 extern uint8_t animation_state;
 extern bool anim_flag;
 extern bool track_refresh;

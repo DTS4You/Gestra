@@ -36,7 +36,7 @@
 
 #include "I2C.h"
 
-#include "Ledsegment.h"
+#include "Radarsegment.h"
 #include "Tracksegment.h"
 #include "animation_seq.h"
 #include "led_setup.h"
@@ -69,7 +69,7 @@ RBD::ButtonExtern button_1(0);
 
 // LED Segmente Objekte anlegen
 Tracksegment track[24];
-Ledsegment radar[4];
+Radarsegment radar[4];
 
 // ----------------------------------------------------------------------------
 // Setup

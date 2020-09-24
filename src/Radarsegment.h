@@ -1,13 +1,13 @@
-#ifndef LEDSEGMENT_H
-#define LEDSEGMENT_H
+#ifndef RADARSEGMENT_H
+#define RADARSEGMENT_H
 
 #include <Arduino.h>
 
-class Ledsegment
+class Radarsegment
 {
 	public:
-		Ledsegment();
-      virtual ~Ledsegment();
+		Radarsegment();
+      virtual ~Radarsegment();
 		void setup(uint8_t, uint8_t, uint8_t);
 		void setColorDef(uint8_t);
 		void setColorOff(uint8_t);
