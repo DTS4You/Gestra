@@ -5,7 +5,7 @@
 
 #include "color_tables.h"
 
-#define DEBUG_COM_Radarsegment
+//#define DEBUG_COM_Radarsegment
 
 extern class DDBooster led_stripe[];
 
@@ -17,16 +17,14 @@ Radarsegment::Radarsegment() {
 	_begin 				= 0;
 	_step 				= 0;
 	_pos				= 0;
-	_collision_h1		= 0;
-	_collision_h2		= 0;
-	_collision_v		= 0;
 	_color_def			= 0;
 	_color_off			= 0;
 	_color_on			= 0;
+	_collision_value	= 0;			// Kollisionswert
 	_dir 				= false;		// false -> right ; true -> left
-	_end_of_run			= false;
-	_collision_on		= false;		// Kollision ein / aus
-	_collision_flag		= false;		// Kollision erkannt -> Richtung zurück
+	_end_of_run			= false;		// Animation Ende
+	_collision_on		= false;
+	_collision_flag		= false;		// Kollision -> Richtung zurück
 }
 
 Radarsegment::~Radarsegment() {
@@ -51,21 +49,10 @@ void Radarsegment::setColorOff(uint8_t c_index) {
 void Radarsegment::setColorOn(uint8_t c_index) {
 	_color_on 	= c_index;
 }
-void Radarsegment::setCollision(uint8_t col_h1, uint8_t col_h2, uint8_t col_v) {
-	_collision_h1	= col_h1;
-	_collision_h2	= col_h2;
-	_collision_v	= col_v;
+// Set Collision
+void Radarsegment::setCollision(uint8_t col) {
+	_collision_value = col;
 }
-uint8_t Radarsegment::getCollision_h1() {
-	return _collision_h1;
-}
-uint8_t Radarsegment::getCollision_h2() {
-	return _collision_h2;
-}
-uint8_t Radarsegment::getCollision_v() {
-	return _collision_v;
-}
-
 // Led Segment Reset
 void Radarsegment::reset() {
 	_dir 		= false;
@@ -122,10 +109,10 @@ void Radarsegment::stepUp() {
 				Serial.print(" - ");
 				Serial.print(_collision_on);
 				Serial.print(" - ");
-				Serial.print(_collision_v);
+				Serial.print(_collision_value);
 			#endif
 			if(_collision_on) {
-				if(_step == _collision_v) {
+				if(_step == _collision_value) {
 					_collision_flag = true;
 				}
 			}

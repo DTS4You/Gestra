@@ -5,7 +5,7 @@
 
 #include "color_tables.h"
 
-#define DEBUG_COM_Tracksegment
+//#define DEBUG_COM_Tracksegment
 
 extern class DDBooster led_stripe[];
 

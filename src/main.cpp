@@ -19,8 +19,10 @@
 //#define DEBUG_COM_RADAR_STEP
 #define DEBUG_COM_TRACK_STEP
 //#define DEBUG_COM_TRACK_STEP_POSITION
+//#define DEBUG_COM_NEW_SCARP
 #define DEBUG_COLLISION
 #define DEBUG_NO_RANDOM
+
 
 #include <arduino.h>
 // #include "ascii_codes.h"
@@ -171,7 +173,7 @@ void loop() {
 	// New scarp timer
 	//-------------------------------------------------------------------------
 	if(new_scrap_part_timer.onRestart()) {
-		#ifdef DEBUG_COM
+		#ifdef DEBUG_COM_NEW_SCARP
 			Serial.print("Neues Schrottteil erzeugen -> ");
 		#endif
 		#ifdef DEBUG_NO_RANDOM
@@ -179,7 +181,7 @@ void loop() {
 		#else
 			new_scrap_part = generate_random();
 		#endif
-		#ifdef DEBUG_COM
+		#ifdef DEBUG_COM_NEW_SCARP
 			Serial.println(new_scrap_part);
 		#endif
 		track[new_scrap_part - 1].start();

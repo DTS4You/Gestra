@@ -64,6 +64,7 @@ void anim_track_step() {
 				Serial.print(track[i].getCollision_h1());
 				Serial.print(" - ");
 			#endif
+			/*
 			// track[i].getCollision_v()
 			// track[i].getCollision_h1()
 			// Radar-Strahl beim nächsten Durchlauf mit Kollisionswerten setzen
@@ -80,12 +81,13 @@ void anim_track_step() {
 					Serial.println(" Kein H2 <");
 				#endif
 			}
+			*/
 		} else {
 			// Kein Kollision 
-			radar[0].setCollision(0,0,0);
-			radar[1].setCollision(0,0,0);
-			radar[2].setCollision(0,0,0);
-			radar[3].setCollision(0,0,0);
+			radar[0].setCollision(0);
+			radar[1].setCollision(0);
+			radar[2].setCollision(0);
+			radar[3].setCollision(0);
 		}
 	}
 	
