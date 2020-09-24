@@ -104,6 +104,8 @@ void Radarsegment::stepUp() {
 			if(_collision_on) {
 				if(_step == _collision_value) {
 					_collision_flag = true;
+					_color_def = RADAR_LED_DEF_COL;
+					_color_on = RADAR_LED_COL;
 				}
 			}
 			// Ausrichtung links <-> rechsts auswerten
@@ -133,6 +135,8 @@ void Radarsegment::stepUp() {
 			} else {
 				_collision_flag = false;
 				_collision_on = false;
+				_color_def = RADAR_LED_DEF;
+				_color_on = RADAR_LED_ON;
 				stop();
 				_end_of_run = true;
 			}

@@ -14,8 +14,9 @@
 #define F_LED_OFF			0
 // -> Radar
 #define RADAR_LED_ON        2
-#define RADAR_LED_COL       1
+#define RADAR_LED_COL       9
 #define RADAR_LED_DEF       6
+#define RADAR_LED_DEF_COL   7
 #define RADAR_LED_OFF       0
 // -> Track
 #define TRACK_LED_ON        1
@@ -25,7 +26,7 @@
 // Timer 
 #define IO_LOOP_TIME		50		// in ms
 #define BUTTON_BLINK_TIME	300     // in ms
-#define ANIMATION_TIME      40      // Radar-Strahl Schrittzeit in ms
+#define ANIMATION_TIME      30      // Radar-Strahl Schrittzeit in ms
 #define SEQUENCE_TIME       10000   // Anzeigedauer in ms
 #define NEW_PART_DELAY      4000    // Dauer bis ein neues Teil losfligt in ms
 

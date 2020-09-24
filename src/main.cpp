@@ -14,10 +14,10 @@
 // ################################################################################
 
 #define DEBUG_STRIPE
-#define DEBUG_COM
-#define DEBUG_COM_STEP
+//#define DEBUG_COM
+//#define DEBUG_COM_STEP
 //#define DEBUG_COM_RADAR_STEP
-#define DEBUG_COM_TRACK_STEP
+//#define DEBUG_COM_TRACK_STEP
 //#define DEBUG_COM_TRACK_STEP_POSITION
 //#define DEBUG_COM_NEW_SCARP
 #define DEBUG_COLLISION

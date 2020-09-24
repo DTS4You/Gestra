@@ -95,15 +95,15 @@
 //#############################################################################
 
 // Horizontaler Kollisionswert von der linken Seite aus gezählt
-#define COL_POS             5
+#define COL_POS             12
 
 // Kollisionswerte
 // Raderstrahl
 // H -> vorne - hinten horizontal (Stripe 1 bis 4 bzw. 5 bis 8)
 // V -> Höhe vertikal von unten gezählt (Radarspiegel)
 #define TRACK_01_COL_H1     1
-#define TRACK_01_COL_H2     2
-#define TRACK_01_COL_V      12
+#define TRACK_01_COL_H2     0
+#define TRACK_01_COL_V      11
 #define TRACK_02_COL_H1     4
 #define TRACK_02_COL_H2     0
 #define TRACK_02_COL_V      7
