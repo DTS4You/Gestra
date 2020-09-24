@@ -60,19 +60,28 @@ void anim_track_step() {
 				Serial.print(track[i].getCollision_h1());
 				Serial.print(" - ");
 			#endif
-			// track[i].getCollision_v())
-			// track[i].getCollision_h1())
+			// track[i].getCollision_v()
+			// track[i].getCollision_h1()
+			// Radar-Strahl beim nächsten Durchlauf mit Kollisionswerten setzen
+			radar[track[i].getCollision_h1()].setCollision(1,1,track[i].getCollision_v());
 			if(track[i].getCollision_h2() > 0) {
 				// Teil trifft 2 Radarstrahlen
 				#ifdef DEBUG_COM_TRACK_STEP
 					Serial.print(track[i].getCollision_h2());
 					Serial.println(" <");
 				#endif
+				radar[track[i].getCollision_h2()].setCollision(1,1,track[i].getCollision_v());
 			} else {
 				#ifdef DEBUG_COM_TRACK_STEP
 					Serial.println(" Kein H2 <");
 				#endif
 			}
+		} else {
+			// Kein Kollision 
+			radar[0].setCollision(0,0,0);
+			radar[1].setCollision(0,0,0);
+			radar[2].setCollision(0,0,0);
+			radar[3].setCollision(0,0,0);
 		}
 	}
 	

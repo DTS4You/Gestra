@@ -44,7 +44,8 @@ class Ledsegment
 		bool	_dir;
 		bool	_enable;
 		bool	_end_of_run;
-		bool	_blank_start_end;
+		bool	_collision_on;
+		bool	_collision_flag;
 };
 
 #endif

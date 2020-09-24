@@ -6,7 +6,7 @@
 
 #include "color_tables.h"
 
-// #define DEBUG_COM_LEDSEGMENT
+#define DEBUG_COM_LEDSEGMENT
 
 extern class DDBooster led_stripe[];
 
@@ -26,7 +26,8 @@ Ledsegment::Ledsegment() {
 	_color_on			= 0;
 	_dir 				= false;		// false -> right ; true -> left
 	_end_of_run			= false;
-	_blank_start_end	= false;		// Start and end with a blank LED
+	_collision_on		= false;		// Kollision ein / aus
+	_collision_flag		= false;		// Kollision erkannt -> Richtung zurück
 }
 
 Ledsegment::~Ledsegment() {
@@ -111,11 +112,25 @@ void Ledsegment::stepUp() {
 		#ifdef DEBUG_COM_LEDSEGMENT
 			Serial.print("Enable -> ");
 		#endif
+		// Alle LEDs auf Default Wert
 		showRange(_color_def);
-		if (_step < _num ) {
+	
+		if(!_collision_flag) {
+			if (_step < _num ) {
+			// Ein Schritt -> +
 			#ifdef DEBUG_COM_LEDSEGMENT
 				Serial.print(_step);
+				Serial.print(" - ");
+				Serial.print(_collision_on);
+				Serial.print(" - ");
+				Serial.print(_collision_v);
 			#endif
+			if(_collision_on) {
+				if(_step == _collision_v) {
+					_collision_flag = true;
+				}
+			}
+			// Ausrichtung links <-> rechsts auswerten
 			if (!_dir) {
 				_pos = _step;
 			} else {
@@ -124,12 +139,35 @@ void Ledsegment::stepUp() {
 			//showRange(_color_def);
 			showPosition(_color_on);
 			_step++;
+			} else {
+				#ifdef DEBUG_COM_LEDSEGMENT
+					Serial.print("Stop");
+				#endif
+				stop();
+				_end_of_run = true;
+			}
 		} else {
-			#ifdef DEBUG_COM_LEDSEGMENT
-				Serial.print("Stop");
-			#endif
-			stop();
-			_end_of_run = true;
+			if (_step > 0 ) {
+				// Ein Schritt -> -
+				#ifdef DEBUG_COM_LEDSEGMENT
+					Serial.print(_step);
+				#endif
+				if (!_dir) {
+					_pos = _step;
+				} else {
+					_pos = _num - _step - 1;
+				}
+				//showRange(_color_def);
+				showPosition(_color_on);
+				_step--;
+			} else {
+				#ifdef DEBUG_COM_LEDSEGMENT
+					Serial.print("Hit-Stop!!!");
+				#endif
+				_collision_flag = false;
+				stop();
+				_end_of_run = true;
+			}
 		}
 	}
 	#ifdef DEBUG_COM_LEDSEGMENT
