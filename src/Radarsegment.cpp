@@ -5,8 +5,6 @@
 
 #include "color_tables.h"
 
-//#define DEBUG_COM_Radarsegment
-
 extern class DDBooster led_stripe[];
 
 extern uint8_t color[];
@@ -52,6 +50,11 @@ void Radarsegment::setColorOn(uint8_t c_index) {
 // Set Collision
 void Radarsegment::setCollision(uint8_t col) {
 	_collision_value = col;
+	if(_collision_value > 0) {
+		_collision_on = true;
+	} else {
+		_collision_on = false;
+	}
 }
 // Led Segment Reset
 void Radarsegment::reset() {
@@ -91,26 +94,13 @@ void Radarsegment::setRunLeft() {
 }
 // Led animation step
 void Radarsegment::stepUp() {
-	#ifdef DEBUG_COM_Radarsegment
-		Serial.print("Radarsegment -> Step Up -> ");
-	#endif
 	if(_enable) {
-		#ifdef DEBUG_COM_Radarsegment
-			Serial.print("Enable -> ");
-		#endif
 		// Alle LEDs auf Default Wert
 		showRange(_color_def);
 	
 		if(!_collision_flag) {
 			if (_step < _num ) {
 			// Ein Schritt -> +
-			#ifdef DEBUG_COM_Radarsegment
-				Serial.print(_step);
-				Serial.print(" - ");
-				Serial.print(_collision_on);
-				Serial.print(" - ");
-				Serial.print(_collision_value);
-			#endif
 			if(_collision_on) {
 				if(_step == _collision_value) {
 					_collision_flag = true;
@@ -126,18 +116,13 @@ void Radarsegment::stepUp() {
 			showPosition(_color_on);
 			_step++;
 			} else {
-				#ifdef DEBUG_COM_Radarsegment
-					Serial.print("Stop");
-				#endif
 				stop();
 				_end_of_run = true;
 			}
 		} else {
 			if (_step > 0 ) {
 				// Ein Schritt -> -
-				#ifdef DEBUG_COM_Radarsegment
-					Serial.print(_step);
-				#endif
+				_step--;
 				if (!_dir) {
 					_pos = _step;
 				} else {
@@ -145,20 +130,14 @@ void Radarsegment::stepUp() {
 				}
 				//showRange(_color_def);
 				showPosition(_color_on);
-				_step--;
 			} else {
-				#ifdef DEBUG_COM_Radarsegment
-					Serial.print("Hit-Stop!!!");
-				#endif
 				_collision_flag = false;
+				_collision_on = false;
 				stop();
 				_end_of_run = true;
 			}
 		}
 	}
-	#ifdef DEBUG_COM_Radarsegment
-		Serial.println(" <");
-	#endif
 }
 
 uint8_t Radarsegment::getPosition() {

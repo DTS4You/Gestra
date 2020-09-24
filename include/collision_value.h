@@ -103,7 +103,7 @@
 // V -> Höhe vertikal von unten gezählt (Radarspiegel)
 #define TRACK_01_COL_H1     1
 #define TRACK_01_COL_H2     2
-#define TRACK_01_COL_V      6
+#define TRACK_01_COL_V      12
 #define TRACK_02_COL_H1     4
 #define TRACK_02_COL_H2     0
 #define TRACK_02_COL_V      7
