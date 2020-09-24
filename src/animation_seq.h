@@ -39,15 +39,40 @@ void anim_radar_step() {
 }
 
 void anim_track_step() {
+	#ifdef DEBUG_COM_TRACK_STEP
+		Serial.println("Track -> Step");
+	#endif
 	for(uint8_t i=0; i<24; i++) {
 		track[i].stepUp();
+		#ifdef DEBUG_COM_TRACK_STEP_POSITION
+			Serial.print("Position -> ");
+			Serial.print(track[i].getPosition());
+			Serial.println(" <");
+		#endif
 		if(track[i].getPosition() == COL_POS) {
 			// Teil auf Radarposition
 			#ifdef DEBUG_COM_TRACK_STEP
 				Serial.print("Track -> ");
 				Serial.print(i);
-				Serial.println(" auf Col-Position");
+				Serial.print(" -> Col-Pos -> ");
+				Serial.print(track[i].getCollision_v());
+				Serial.print(" - ");
+				Serial.print(track[i].getCollision_h1());
+				Serial.print(" - ");
 			#endif
+			// track[i].getCollision_v())
+			// track[i].getCollision_h1())
+			if(track[i].getCollision_h2() > 0) {
+				// Teil trifft 2 Radarstrahlen
+				#ifdef DEBUG_COM_TRACK_STEP
+					Serial.print(track[i].getCollision_h2());
+					Serial.println(" <");
+				#endif
+			} else {
+				#ifdef DEBUG_COM_TRACK_STEP
+					Serial.println(" Kein H2 <");
+				#endif
+			}
 		}
 	}
 	

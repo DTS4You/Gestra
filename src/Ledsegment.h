@@ -23,6 +23,9 @@ class Ledsegment
 		void setCollision(uint8_t, uint8_t, uint8_t);
 		uint8_t getPosition();
 		bool isEndPosition();
+		uint8_t getCollision_h1();
+		uint8_t getCollision_h2();
+		uint8_t getCollision_v();
 
     protected:
 

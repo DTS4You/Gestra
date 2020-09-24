@@ -1,8 +1,8 @@
 // ################################################################################
 // ###                                                                          ###
 // ### Projekt			: Gestra												###
-// ### Version			: 0.10													###
-// ### Datum			: 27.08.2020											###
+// ### Version			: 0.80													###
+// ### Datum			: 24.08.2020											###
 // ###                                                                          ###
 // ### Änderung			: keine													###
 // ###																			###
@@ -14,10 +14,11 @@
 // ################################################################################
 
 #define DEBUG_STRIPE
-//#define DEBUG_COM
-//#define DEBUG_COM_STEP
+#define DEBUG_COM
+#define DEBUG_COM_STEP
 //#define DEBUG_COM_RADAR_STEP
-//#define DEBUG_COM_TRACK_STEP
+#define DEBUG_COM_TRACK_STEP
+//#define DEBUG_COM_TRACK_STEP_POSITION
 #define DEBUG_COLLISION
 #define DEBUG_NO_RANDOM
 

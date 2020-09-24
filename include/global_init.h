@@ -13,7 +13,7 @@
 #define F_LED_DEF			5
 #define F_LED_OFF			0
 // -> Radar
-#define RADAR_LED_ON        1
+#define RADAR_LED_ON        2
 #define RADAR_LED_DEF       5
 #define RADAR_LED_OFF       0
 // -> Track

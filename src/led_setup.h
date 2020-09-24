@@ -48,13 +48,13 @@ void led_setup() {
 	radar[3].setup(STRIPE_28_DDB, STRIPE_28_START, STRIPE_28_NUM);
 
     for (uint8_t i=0; i<24; i++) {
-		track[i].setColorDef(F_LED_DEF);
-		track[i].setColorOn(F_LED_ON);
+		track[i].setColorDef(TRACK_LED_DEF);
+		track[i].setColorOn(TRACK_LED_ON);
 	}
 	
 	for (uint8_t i=0; i<4; i++) {
-		radar[i].setColorDef(F_LED_DEF);
-		radar[i].setColorOn(F_LED_ON);
+		radar[i].setColorDef(RADAR_LED_DEF);
+		radar[i].setColorOn(RADAR_LED_ON);
 	}
 
 	//-------------------------------------------------------------------------

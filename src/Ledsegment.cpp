@@ -56,6 +56,16 @@ void Ledsegment::setCollision(uint8_t col_h1, uint8_t col_h2, uint8_t col_v) {
 	_collision_h2	= col_h2;
 	_collision_v	= col_v;
 }
+uint8_t Ledsegment::getCollision_h1() {
+	return _collision_h1;
+}
+uint8_t Ledsegment::getCollision_h2() {
+	return _collision_h2;
+}
+uint8_t Ledsegment::getCollision_v() {
+	return _collision_v;
+}
+
 // Led Segment Reset
 void Ledsegment::reset() {
 	_dir 		= false;
