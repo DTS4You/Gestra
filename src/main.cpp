@@ -13,15 +13,15 @@
 // ###					: 1 x Taster mit LED Ring								###
 // ################################################################################
 
-#define DEBUG_STRIPE
+//#define DEBUG_STRIPE
 //#define DEBUG_COM
 //#define DEBUG_COM_STEP
 //#define DEBUG_COM_RADAR_STEP
 //#define DEBUG_COM_TRACK_STEP
 //#define DEBUG_COM_TRACK_STEP_POSITION
 //#define DEBUG_COM_NEW_SCARP
-#define DEBUG_COLLISION
-#define DEBUG_NO_RANDOM
+//define DEBUG_COLLISION
+//#define DEBUG_NO_RANDOM
 
 
 #include <arduino.h>
@@ -203,6 +203,9 @@ void loop() {
 			radar[1].start();
 			radar[2].start();
 			radar[3].start();
+
+			new_scrap_part = generate_random();
+			track[new_scrap_part - 1].start();
 
 			animation_state = 1;
 			new_scrap_part_timer.restart();

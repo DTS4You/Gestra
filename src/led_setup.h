@@ -61,35 +61,35 @@ void led_setup() {
 	//-------------------------------------------------------------------------
 	// LED-Stripes-Ausrichtung
 	//-------------------------------------------------------------------------
-	radar[0].setRunRight();
-	radar[1].setRunRight();
-	radar[2].setRunRight();
-	radar[3].setRunRight();
+	radar[0].setRunLeft();		//  1. LED-Streifen
+	radar[1].setRunRight();		//  2. LED-Streifen 
+	radar[2].setRunLeft();		//  3. LED-Streifen
+	radar[3].setRunRight();		//  4. LED-Streifen
 
-	track[0].setRunRight();
-	track[1].setRunRight();
-	track[2].setRunRight();
-	track[3].setRunRight();
-	track[4].setRunRight();
-	track[5].setRunRight();
-	track[6].setRunRight();
-	track[7].setRunRight();
-	track[8].setRunRight();
-	track[9].setRunRight();
-	track[10].setRunRight();
-	track[11].setRunRight();
-	track[12].setRunRight();
-	track[13].setRunRight();
-	track[14].setRunRight();
-	track[15].setRunRight();
-	track[16].setRunRight();
-	track[17].setRunRight();
-	track[18].setRunRight();
-	track[19].setRunRight();
-	track[20].setRunRight();
-	track[21].setRunRight();
-	track[22].setRunRight();
-	track[23].setRunRight();
+	track[0].setRunLeft();		//  1. LED-Streifen
+	track[1].setRunRight();		//  2. LED-Streifen
+	track[2].setRunLeft();		//  3. LED-Streifen
+	track[3].setRunRight();		//  4. LED-Streifen
+	track[4].setRunLeft();		//  5. LED-Streifen
+	track[5].setRunRight();		//  6. LED-Streifen
+	track[6].setRunLeft();		//  7. LED-Streifen
+	track[7].setRunRight();		//  8. LED-Streifen
+	track[8].setRunLeft();		//  9. LED-Streifen
+	track[9].setRunRight();		// 10. LED-Streifen
+	track[10].setRunLeft();		// 11. LED-Streifen
+	track[11].setRunRight();	// 12. LED-Streifen
+	track[12].setRunLeft();		// 13. LED-Streifen
+	track[13].setRunRight();	// 14. LED-Streifen
+	track[14].setRunLeft();		// 15. LED-Streifen
+	track[15].setRunRight();	// 16. LED-Streifen
+	track[16].setRunLeft();		// 17. LED-Streifen
+	track[17].setRunRight();	// 18. LED-Streifen
+	track[18].setRunLeft();		// 19. LED-Streifen
+	track[19].setRunRight();	// 20. LED-Streifen
+	track[20].setRunLeft();		// 21. LED-Streifen
+	track[21].setRunRight();	// 22. LED-Streifen
+	track[22].setRunLeft();		// 23. LED-Streifen
+	track[23].setRunRight();	// 24. LED-Streifen
 
 	//-------------------------------------------------------------------------
 	// Grundeinstellungen LED Stripes
