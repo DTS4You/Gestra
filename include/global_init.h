@@ -28,7 +28,7 @@
 #define BUTTON_BLINK_TIME	300     // in ms
 #define ANIMATION_TIME      20      // Radar-Strahl Schrittzeit in ms
 #define SEQUENCE_TIME       10000   // Anzeigedauer in ms
-#define NEW_PART_DELAY      7000    // Dauer bis ein neues Teil losfligt in ms
+#define NEW_PART_DELAY      10000   // Dauer bis ein neues Teil losfligt in ms
 
 // Digi-Dot-Booster
 #define DDB_COUNT           8       // Anzahl der DigiDotBooster Module
