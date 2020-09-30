@@ -10,7 +10,8 @@
 #ifndef DEBUG_COLLISION
 
 // Horizontaler Kollisionswert von der linken Seite aus gezählt
-#define COL_POS             34
+#define COL_POS_1           34
+#define COL_POS_2           35
 
 // Kollisionswerte
 // Raderstrahl
@@ -95,7 +96,8 @@
 //#############################################################################
 
 // Horizontaler Kollisionswert von der linken Seite aus gezählt
-#define COL_POS             12
+#define COL_POS_1           11
+#define COL_POS_2           12
 
 // Kollisionswerte
 // Raderstrahl

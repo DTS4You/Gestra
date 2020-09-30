@@ -54,7 +54,7 @@ void anim_track_step() {
 			Serial.println(" <");
 		#endif
 		// Teil auf Radarposition
-		if(track[i].getPosition() == COL_POS) {
+		if(track[i].getPosition() == COL_POS_1 || track[i].getPosition() == COL_POS_2 ) {
 			#ifdef DEBUG_COM_TRACK_STEP
 				Serial.print("Track -> ");
 				Serial.print(i);
